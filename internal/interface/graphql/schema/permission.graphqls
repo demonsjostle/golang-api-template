@@ -1,0 +1,32 @@
+"""
+📦 Input for creating a permission
+"""
+input CreatePermissionInput {
+  code: String!
+  description: String
+}
+
+"""
+✏️ Input for updating an existing permission
+"""
+input UpdatePermissionInput {
+  code: String
+  description: String
+}
+
+type Permission {
+  id: ID!
+  code: String!
+  description: String
+}
+
+extend type Query {
+  permissions: [Permission!]!
+  permission(id: ID!): Permission
+}
+
+extend type Mutation {
+  createPermission(input: CreatePermissionInput!): Permission!
+  updatePermission(id: ID!, input: UpdatePermissionInput!): Permission!
+  deletePermission(id: ID!): Boolean!
+}

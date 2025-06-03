@@ -1,0 +1,29 @@
+# .air.toml
+
+# โฟลเดอร์ root ของโปรเจกต์
+root = "."
+tmp_dir = "tmp"
+
+[build]
+  # คำสั่งที่ใช้ build/rerun
+  # cmd = "go run cmd/server/main.go"
+  cmd = "pkill cpru-api; go build -o ./tmp/cpru-api ./cmd/server && ./tmp/cpru-api"
+
+
+  # include file extension ที่จะ watch
+  include_ext = ["go", "graphql"]
+
+  # โฟลเดอร์ที่ไม่ต้อง watch
+  exclude_dir = ["tmp", "vendor", "graph/generated", "ent/generated", "node_modules"]
+
+  # มี main package ไหม (ปกติไม่ต้องใส่ถ้ารันผ่าน go run)
+  # main = "cmd/server"
+
+[color]
+  main = "yellow"
+  watcher = "cyan"
+  build = "green"
+  runner = "blue"
+
+[misc]
+  clean_on_exit = true

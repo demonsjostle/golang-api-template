@@ -1,0 +1,35 @@
+"""
+🔗 UserPermission entity (ความสัมพันธ์ระหว่างผู้ใช้กับสิทธิ์)
+"""
+type UserPermission {
+  id: ID!
+  userID: Int!
+  permissionID: Int!
+}
+
+
+extend type Query {
+  """
+  🔍 ค้นหารายการ permission ที่ผูกกับ user
+  """
+  userPermissionsByUserID(userID: Int!): [UserPermission!]!
+
+  """
+  🔍 ค้นหารายการ user ที่ถูกผูกกับ permission
+  """
+  userPermissionsByPermissionID(permissionID: Int!): [UserPermission!]!
+}
+
+extend type Mutation {
+  """
+  ✅ ผูกสิทธิ์ให้กับผู้ใช้
+  """
+  assignPermissionToUser(userID: Int!, permissionID: Int!): UserPermission!
+
+  """
+  ❌ ยกเลิกสิทธิ์จากผู้ใช้
+  """
+  removePermissionFromUser(userID: Int!, permissionID: Int!): Boolean!
+}
+
+

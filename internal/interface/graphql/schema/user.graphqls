@@ -1,0 +1,49 @@
+"""
+📦 Input for creating a new user
+"""
+input CreateUserInput {
+  name: String!
+  surname: String!
+  username: String!
+  email: String!
+  phone: String
+  password: String!
+  departmentId: Int
+}
+
+"""
+✏️ Input for updating an existing user
+"""
+input UpdateUserInput {
+  name: String
+  surname: String
+  username: String
+  email: String
+  phone: String
+  password: String
+  departmentId: Int
+}
+
+"""
+👤 User entity
+"""
+type User {
+  id: ID!
+  name: String!
+  surname: String!
+  username: String!
+  email: String!
+  phone: String
+  departmentId: Int
+}
+
+extend type Query {
+  users: [User!]!
+  user(id: ID!): User
+}
+
+extend type Mutation {
+  createUser(input: CreateUserInput!): User!
+  updateUser(id: ID!, input: UpdateUserInput!): User!
+  deleteUser(id: ID!): Boolean!
+}

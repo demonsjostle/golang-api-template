@@ -1,0 +1,29 @@
+"""
+📦 Input for creating a role
+"""
+input CreateRoleInput {
+  name: String!
+}
+
+"""
+✏️ Input for updating a role
+"""
+input UpdateRoleInput {
+  name: String
+}
+
+type Role {
+  id: ID!
+  name: String!
+}
+
+extend type Query {
+  roles: [Role!]!
+  role(id: ID!): Role
+}
+
+extend type Mutation {
+  createRole(input: CreateRoleInput!): Role!
+  updateRole(id: ID!, input: UpdateRoleInput!): Role!
+  deleteRole(id: ID!): Boolean!
+}

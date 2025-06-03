@@ -1,0 +1,18 @@
+"""
+🔗 UserRole entity (ความสัมพันธ์ระหว่าง User และ Role)
+"""
+type UserRole {
+  id: ID!
+  userID: Int!
+  roleID: Int!
+}
+
+extend type Query {
+  userRolesByUserID(userID: Int!): [UserRole!]!
+  userRolesByRoleID(roleID: Int!): [UserRole!]!
+}
+
+extend type Mutation {
+  assignRoleToUser(userID: Int!, roleID: Int!): UserRole!
+  removeRoleFromUser(userID: Int!, roleID: Int!): Boolean!
+}

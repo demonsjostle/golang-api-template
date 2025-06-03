@@ -1,0 +1,7 @@
+type Query {
+  _empty: String @deprecated(reason: "Placeholder field, do not use")
+}
+
+type Mutation {
+  _empty: String @deprecated(reason: "Placeholder field, do not use")
+}

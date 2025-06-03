@@ -1,0 +1,18 @@
+"""
+🔗 Entity สำหรับความสัมพันธ์ระหว่าง Role และ Permission
+"""
+type RolePermission {
+  id: ID!
+  roleID: Int!
+  permissionID: Int!
+}
+
+extend type Query {
+  rolePermissionsByRoleID(roleID: Int!): [RolePermission!]!
+  rolePermissionsByPermissionID(permissionID: Int!): [RolePermission!]!
+}
+
+extend type Mutation {
+  assignPermissionToRole(roleID: Int!, permissionID: Int!): RolePermission!
+  removePermissionFromRole(roleID: Int!, permissionID: Int!): Boolean!
+}
