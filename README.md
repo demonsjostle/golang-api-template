@@ -115,5 +115,5 @@ GraphQL → Resolver → Service → Repository Interface → Ent (Adapter) → 
 
 ## 🧡 ผู้ดูแลโปรเจกต์
 
-พัฒนาโดย [Minerta](https://minertatech.com/) 
+พัฒนาโดย [demonsjostle](https://github.com/demonsjostle) 
 
